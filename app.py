@@ -55,7 +55,7 @@ def OTP():
         if resp.text != 'Code':
             login_session['verified'] = True
             return redirect('/')
-    elif resp.text == 'Code':
+        elif resp.text == 'Code':
             return render_template('otp.html')
 
 
