@@ -13,5 +13,5 @@ class Users(Base):
 
 
 
-engine = create_engine('sqlite:////home/bhanu/Documents/final_build/flask4/marvin1.db')
+engine = create_engine('sqlite:////home/bhanu/Documents/final_build/flask5/marvin_test/marvin1.db')
 Base.metadata.create_all(engine)

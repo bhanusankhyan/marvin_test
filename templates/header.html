@@ -44,7 +44,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                           {% for item in user_menu_items %}
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" href={{item.link}}>
                             <i class="dropdown-icon fe {{item.class}}"></i> {{item.name}}
                           </a>
                           {% endfor %}
@@ -92,8 +92,10 @@
                   </div>
                 </div>
               </div>
+              <div class = "container">
               {% block content %}
               {% endblock %}
+            </div>
             </div>
 </body>
 </html>
