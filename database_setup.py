@@ -8,10 +8,10 @@ Base = declarative_base()
 
 class Users(Base):
     __tablename__ = 'users'
-    userName = Column(String(50), nullable = False)
+    password = Column(String(50), nullable = False)
     mobileNumber = Column(Integer, primary_key = True)
 
 
 
-engine = create_engine('sqlite:////home/bhanu/Documents/final_build/flask5/marvin_test/marvin1.db')
+engine = create_engine('sqlite:////home/bhanu/Documents/final_build/flask7/marvin_test/marvin.db')
 Base.metadata.create_all(engine)

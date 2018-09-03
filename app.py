@@ -6,7 +6,7 @@ from flask import session as login_session
 import requests
 
 
-engine = create_engine('sqlite:////home/bhanu/Documents/final_build/flask5/marvin_test/marvin1.db')
+engine = create_engine('sqlite:////home/bhanu/Documents/final_build/flask7/marvin_test/marvin.db?check_same_thread=False')
 Base.metadata.bind = engine
 
 app = Flask(__name__)
@@ -65,9 +65,11 @@ def Login():
          return render_template('login.html')
     if request.method == 'POST':
         phone = request.form['phone']
+        phone = int(phone)
         password = request.form['password']
-        login_session['phone'] = phone
-        if(phone != '' and password != ''):
+        user = session.query(Users).filter_by(mobileNumber = phone).one()
+        if user.mobileNumber == phone and user.password == password:
+            login_session['phone'] = phone
             r = requests.get('https://api-v3.redcarpetup.com/app_number', {'mobile':phone,'name': password,'email': 'aa@gmail.com'})
             return redirect('/otp')
         else:
